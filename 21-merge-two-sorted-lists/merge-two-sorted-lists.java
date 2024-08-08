@@ -1,28 +1,57 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
- */
-class Solution {
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode result = new ListNode();
-		ListNode current = result;
+class Solution
+{
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2)
+    {
+        if(list1==null &&list2==null)
+        {
+            return list1;
+        } 
+        if(list1==null)
+        {
+            return list2;
+        }
+        if(list2==null)
+        {
+            return list1;
+        }
+        ListNode dummy = new ListNode(-1);  
+        ListNode temp = null; 
+        if(list1.val <= list2.val)
+        {
+            dummy.next = list1;  
+            temp = list1;
+            list1 = list1.next;
+        }
+        else 
+        {
+            dummy.next = list2; 
+            temp = list2; 
+            list2 = list2.next;
+        }
+        while(list1!=null && list2!=null)
+        {
+             if(list1.val <=list2.val)
+             {
+                temp.next = list1;  
+                temp = list1; 
+                list1 = list1.next;
 
-		while (!Objects.isNull(list1) || !Objects.isNull(list2)) {
-			if (!Objects.isNull(list2) && (Objects.isNull(list1) || list1.val > list2.val)) {
-				current.next = new ListNode(list2.val);
-				list2 = list2.next;
-			} else {
-				current.next = new ListNode(list1.val);
-				list1 = list1.next;
-			}
-			current = current.next;
-		}
-		return result.next;
+             }
+             else 
+             {
+                temp.next = list2; 
+                temp = list2; 
+                list2 = list2.next;
+             }
+        } 
+        if(list1==null)
+        {
+            temp.next = list2;
+        }
+        else 
+        {
+            temp.next = list1;
+        }
+       return dummy.next; 
     }
 }

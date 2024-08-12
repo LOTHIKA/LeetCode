@@ -10,13 +10,13 @@ class Solution {
         for(int i=1 ; i<left;i++){
             temp1 = temp1.next;
         }
-        ListNode p = temp1.next;
-        ListNode m = p.next;
+        ListNode start = temp1.next;
+        ListNode next_start = start.next;
         for(int i=0 ; i<right-left ;i++){
-            p.next = m.next;
-            m.next = temp1.next;
-            temp1.next = m;
-            m = p.next;
+            start.next = next_start.next;
+            next_start.next = temp1.next;
+            temp1.next = next_start;
+            next_start = start.next;
         }
         return dummy.next;
     }

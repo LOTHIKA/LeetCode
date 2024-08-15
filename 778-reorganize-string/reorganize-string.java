@@ -1,18 +1,16 @@
 class Solution {
     public String reorganizeString(String s) {
-       int arr[] = new int[26]; // 'ar' array is used to store character frequencies.
-        int n = s.length(); // Length of the input string.
-        int count = n; // Counter to keep track of the remaining characters.
+       int arr[] = new int[26]; 
+        int n = s.length(); 
         
         for (int i = 0; i < n; i++) {
-            char ch = s.charAt(i); // Get the character at index 'i'.
-            arr[ch - 'a']++; // Increment the count of the corresponding character.
+            char ch = s.charAt(i);
+            arr[ch - 'a']++; 
         }
         
-        // Step 2: Find the most frequent character and its count.
-        char ans[] = new char[n]; // 'ans' array will store the reorganized string.
-        int max = Integer.MIN_VALUE; // Variable to store the maximum character count.
-        int letter = -1; // Variable to store the index of the most frequent character.
+        char ans[] = new char[n];
+        int max = Integer.MIN_VALUE;
+        int letter = -1; 
         
         for (int i = 0; i < 26; i++) {
             if (max < arr[i]) {
@@ -20,20 +18,14 @@ class Solution {
                 letter = i;
             }  
         }
-        
-        // Step 3: Check if it's possible to reorganize the string.
-        // If the count of the most frequent character is greater than (n+1)/2,
-        // it's not possible to reorganize such that the same characters are not adjacent.
         if (arr[letter] > (n + 1) / 2) {
             return "";
         }
-        
-        // Step 4: Reorganize the string.
-        int index = 0; // Index to keep track of where to insert characters in 'ans'.
+        int index = 0; 
         
         while (arr[letter]-- > 0) {
-            ans[index] = (char)(letter + 'a'); // Place the most frequent character.
-            index += 2; // Move to the next even index.
+            ans[index] = (char)(letter + 'a'); 
+            index += 2; 
         }
         
         

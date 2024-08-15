@@ -1,18 +1,18 @@
 class Solution {
     public int[] decode(int[] encoded) {
-        int first = 0;
+        int temp = 0;
         int n = encoded.length+1;
         for(int i=1;i<=n;i++){
-            first = first^i; 
+            temp = temp^i; 
         }
         for(int i=1;i<n-1;i+=2) {
-           first = first ^ encoded[i];
+           temp = temp ^ encoded[i];
         }
-        int[] perm = new int[n];
-        perm[0] = first;
+        int[] result = new int[n];
+        result[0] = temp;
         for(int i=0;i<n-1;i++){
-            perm[i+1] = perm[i] ^ encoded[i];
+            result[i+1] = result[i] ^ encoded[i];
         }
-        return perm;
+        return result;
     }
 }

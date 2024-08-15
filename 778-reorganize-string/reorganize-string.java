@@ -36,9 +36,9 @@ class Solution {
             index += 2; // Move to the next even index.
         }
         
-        // Place the remaining characters.
+        
         for (int i = 0; i < 26; i++) {
-            while (arr[i]-- > 0) {
+            while (arr[i]--> 0) {
                 if (index >= n) {
                     index = 1; // If 'ind' goes beyond the last index, reset it to 1 (odd index).
                 }

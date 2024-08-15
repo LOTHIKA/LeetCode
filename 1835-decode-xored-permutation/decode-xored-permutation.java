@@ -1,6 +1,6 @@
 class Solution {
     public int[] decode(int[] encoded) {
-         int first = 0;
+        int first = 0;
         int n = encoded.length+1;
         for(int i=1;i<=n;i++){
             first = first^i; 

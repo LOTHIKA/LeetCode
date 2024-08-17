@@ -10,7 +10,7 @@ class Solution {
        for(String num : str){
            sb.append(num);
        }
-       while(sb.charAt(0)=='0' && sb.length()>1){
+       while(sb.charAt(0)=='0'){
         return "0";
        }
        return sb.toString();

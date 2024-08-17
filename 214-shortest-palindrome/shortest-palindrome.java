@@ -29,7 +29,7 @@ class Solution {
 
         
         String suf = s.substring(end);
-        String rev = new StringBuilder(suf).reverse().toString();
+        StringBuilder rev = new StringBuilder(suf).reverse();
 
         
         return rev + s;

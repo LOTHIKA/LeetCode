@@ -11,14 +11,10 @@ class Solution {
         }
         return true;
     }
-
     public String shortestPalindrome(String s) {
-
         if (s.length() <= 1) {
             return s;
         }
-
-    
         int end = 0;
         for (int i = s.length(); i >= 0; i--) {
             if (isPalindrome(s.substring(0, i))) {
@@ -26,12 +22,8 @@ class Solution {
                 break;
             }
         }
-
-        
-        String suf = s.substring(end);
-        StringBuilder rev = new StringBuilder(suf).reverse();
-
-        
+        String res = s.substring(end);
+        StringBuilder rev = new StringBuilder(res).reverse();
         return rev + s;
     }
 }

@@ -3,11 +3,9 @@ class Solution {
         List<List<String>> result = new ArrayList<>();
         HashMap<String, List<String>> mp = new HashMap<>();
         for(String str : strs ){
-            int[] input = new int[26];
-            for(int i=0;i<str.length();i++){
-                input[str.charAt(i) - 'a']++;
-            }
-            String words = Arrays.toString(input);
+            char[] ch = str.toCharArray();
+            Arrays.sort(ch);
+            String words =new String(ch);
             if(mp.containsKey(words)){
                 mp.get(words).add(str);
             }

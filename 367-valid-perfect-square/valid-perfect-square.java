@@ -3,9 +3,18 @@ class Solution {
         if(num==1){
             return true;
         }
-        for(long i=num/2;i>=0;i--){
-            if((i*i)==num){
+        long start = 1;
+        long end =(long)num;
+        while(start<=end){
+            long mid = start + (end -start)/2;
+            if(mid*mid == num){
                 return true;
+            }
+            else if(mid*mid > num){
+                end = mid - 1;
+            }
+            else{
+                start = mid+1;
             }
         }
         return false;
